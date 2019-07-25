@@ -1,0 +1,268 @@
+begin
+	dbms_output.put_line();
+end;
+...............
+
+declare
+a number(3):=100;
+b number(3):=876;
+begin
+dbms_output.put_line('value of a is'|| a);
+dbms_output.put_line('value of b is'|| b);
+dbms_output.put_line('the sum is'|| (a+b));
+end;
+/
+
+
+declare 
+a number(2):=2;
+begin  
+loop 
+     dbms_output.put_line(a);
+a:=a+2;
+exit when a>=22;
+end loop;
+end;
+/
+
+
+declare
+vsal number(10,2);
+begin 
+select sal into vsal from emp where ename='SMITH';
+dbms_output.put_line(vsal);
+end;
+---------------------------------
+declare
+vsal number(7,2);
+vhire date;
+vdeptno number(2);
+begin 
+select sal,hiredate,deptno into vsal,vhire,vdeptno from emp where ename='SMITH';
+dbms_output.put_line('SALARY  OF SMITH IS' ||vsal);
+dbms_output.put_line('HIREDATE  OF SMITH IS' ||vhire);
+dbms_output.put_line('DEPARTMENT NUMBER  OF SMITH IS' ||vdeptno);
+end;
+-------------------------------
+declare
+a number(2):=1;
+begin
+while a<11
+loop
+dbms_output.put_line(a||'my name is vinny');
+a:=a+1;
+end loop;
+end;
+/
+begin 
+for i in 1000..30
+loop 
+dbms_output.put_line(i);
+end loop;
+end;
+/
+
+begin
+for i in 1..20
+loop
+if mod(i,2)!=0 then
+dbms_output.put_line(i);
+end if;
+end loop;
+end;
+
+declare
+vsal number(7,2);
+vename varchar2(20);
+begin
+vename:='&name1';
+select sal into vsal from emp where ename=vename;
+dbms_output.put_line('sal is  '||vsal);
+if vsal<1000 then 
+vsal:=vsal+300; 
+dbms_output.put_line('salary updated');
+dbms_output.put_line('New salary is  ' || vsal);
+else
+dbms_output.put_line('You are already rich');
+end if;
+end;
+/
+
+
+
+DECLARE 
+VREC EMP%ROWTYPE;
+VENAME VARCHAR2(10);
+BEGIN
+VENAME:='&NAME1';
+SELECT * INTO VREC FROM EMP WHERE ENAME=VENAME;
+dbms_output.put_line(VREC.SAL);
+dbms_output.put_line(VREC.COMM);
+dbms_output.put_line(VREC.HIREDATE);
+dbms_output.put_line(VREC.MGR);
+dbms_output.put_line(VREC.DEPTNO);
+
+END;
+
+CREATE TABLE PRODUCT_MASTER  (P_NO VARCHAR2(6) CONSTRAINT P_PK PRIMARY KEY CONSTRAINT P1_CK CHECK(P_NO LIKE 'P%'),DESCRIPTION VARCHAR2(30) NOT NULL,PROFIT_PERCENT NUMER(3,2) NOT NULL, UNIT_MEASURE VARCHAR2(10) NOT NULL, QUANTITY NUMJER(7) NOT NULL, RECORT_LVL NUMBER(8) NOT NULL, SELL_PRICE NUMBER(8,2) NOT NULL CONSTRAINT CHECK SPRICE_CK (SELL_PRICE>0), COST_PRICE NUMBER(8,2) CONSTRAINT CPRICE_CK (COST_PRICE>0));
+
+create procedure proc2
+as
+vsal number(10,2);
+begin 
+select sal into vsal from emp where ename='SMITH';
+dbms_output.put_line(vsal);
+end;
+
+    create or replace procedure proc1 as
+    vsal number(10,2);
+    vename varchar2(10);
+    begin
+    select ename, sal into vename,vsal from emp where ename='ALLEN';
+dbms_output.put_line('ORIGINAL SALARY: '||vsal);
+IF VSAL<6000 THEN VSAL:=VSAL+300;
+dbms_output.put_line('UPDATED SALARY: '||vsal);
+end if;
+end;
+/
+----------------------------------
+create or replace procedure proc1(pename varchar2, pesal number) 
+    as
+    vsal number(10,2);
+    vename varchar2(10);
+    begin
+    select ename, sal into vename,vsal from emp where ename=pename;
+dbms_output.put_line('ORIGINAL SALARY: '||vsal);
+IF VSAL<6000 THEN VSAL:=VSAL+pesal;
+dbms_output.put_line('UPDATED SALARY: '||vsal);
+end if;
+end;
+/
+
+create or replace procedure proc2(pemno number)
+as
+vsal number(10,2);
+begin 
+select sal into vsal from emp where empno=pemno;
+dbms_output.put_line(vsal || ' Per day, Rahil you are amazing.');
+end;
+
+create or replace procedure out_proc(pemno in number, psal out number, pcomm out number, pann out number)
+as
+begin  
+select sal,comm, into pnet from emp where empno=pemno;
+end;
+
+declare
+pnet number(10,2);
+begin
+out_proc(7592,pnet);
+dbms_output.put_line(pnet);
+end;
+
+
+CREATE OR REPLACE FUNCTION ABC_FUN(A NUMBER)
+RETURN NUMBER
+AS BEGIN
+RETURN A*A*A*A;
+END;
+-----------------------
+
+create or replace function eno_fun(peno number)
+return number
+as
+vnet number(10,2);
+begin
+select sal+nvl(comm,0) into vnet from emp where empno=peno; 
+return vnet;
+end;
+
+
+--------------------USER DEFINES EXCEPTION--------
+It is defined and heandles by user
+
+
+steops:
+1 declare
+2 if condition
+3 raise exception
+4 handle exception
+--eg: check the sal for smith, if sal < 300 then display error message as salary is very low.
+-------------------------------------
+
+
+declare
+vsal number(7,2);
+vname varchar2(20);
+PNAME VARCHAR2(10);
+lowsal exception;
+highsal exception;
+begin
+  pname:= '&vname';
+select sal into vsal from emp` where ename  = pname ;
+If vsal<3000 then
+  raise lowsal;
+else 
+raise highsal;
+end if;
+exception
+when lowsal then
+dbms_output.put_line('The salary is vvvv low!!!');
+when highsal then
+dbms_output.put_line('The salary is vvvv high!!!');
+end;
+----------------------------------				
+create or replace trigger tr1_T33
+before insert
+on T33
+begin
+dbms_output.put_line('This is an inseert trigger!!!');
+end;
+
+
+CREATE TABLE T33(
+EMPNO INT,
+ENAME VARCHAR2(20));
+
+
+INSERT INTO T33 VALUES(1,'RAHIL');
+
+CREATE OR REPLACE TRIGGER TRI
+BEFORE DELETE
+ON T33
+BEGIN 
+RAISE_APPLICATION_ERROR(-20002,'YOU CANNOT DELETE THE RECORD!');
+END;
+
+
+CREATE OR REPLACE TRIGGER TR_SAL
+AFTER UPDATE OF SAL ON EMP FOR EACH ROW
+BEGIN
+IF UPDATING THEN
+INSERT INTO SALARY_HISTORY VALUES(:OLD.EMPNO, :OLD.SAL, :NEW.SAL);
+END IF;
+END;
+
+DECLARE
+TOT NUMBER(2);
+BEGIN
+UPDATE EMP SET SAL=SAL+1000;
+IF SQL%FOUND THEN
+DBMS_OUTPUT.PUT_LINE('IMPLICIT CURSOR IS PRESENT');
+END IF;
+TOT:=SQL%ROWCOUNT;
+DBMS_OUTPUT.PUT_LINE('TOT IS '|| TOT);
+END;
+
+DECLARE
+   CURSOR C1 IS SELECT * FROM EMP;
+   VREC EMP%ROWTYPE;
+BEGIN
+OPEN C1;
+LOOP 
+FETCH C1 INTO VREC;
+EXIT WHEN Z1%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(VREC.ENAME ||' EARNING IS '|| VREC.SAL);
+END LOOP;
+CLOSE C1;
+END;

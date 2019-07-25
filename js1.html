@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function check(a)
+{
+	alert("paragraph clicked");
+	para=document.getElementsByTagName("p");
+	for(i=0;i<para.length;i++)
+	{
+		if(para[i].style.display="block" && i==a)
+		{
+			alert(para[i].innerHTML);
+			para[i].style.display="none";
+		}
+	}
+}
+</script>
+</head>
+<body bgcolor="#ffccee">
+<h1>Welcome to Javascript </h1>
+<p onclick="check(0)">I am Sham!</p>
+<p onclick="check(1)">Too Coooool..........</p>
+<p> Hiiiiiiiiiiiiiiiiiii </p>
+<p> How are you? </p>
+</body>
+</html>

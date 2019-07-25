@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form API</title>
+</head>
+<body style="font-family: 'Segoe UI">
+<form method="get" action="Demo4.html">
+	<h1>Form API Controls</h1>
+	<table align="center" border="2" cellspacing="5" cellpadding="5" >
+		<caption><h3>Fill Employee Details</h3></caption>
+	<tr>
+		<th>Full Name</th>
+		<td>
+			<input type="text" id="txtFN" name="txtFN" maxlength="50"
+					size="30" required autofocus 
+					placeholder="Full Name"/>
+		</td>
+	</tr>
+	<tr>
+		<th>Age:</th>
+		<td>
+			<input type="number" id="txtAge"name="txtAge" min="18" max="40"  step="2" placeholder="Age" />
+		</td>
+	</tr>
+	<tr>
+		<th>Address:</th>
+		<td>
+			<textarea id="txtAddr" name="txtAddr" rows="5" cols="60" maxlength="500" placeholder="Type Address"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<th>Mobile Number:</th>
+		<td>
+		    <input type="number" id="txtMN" name="txtMN" rows="5" cols="60" maxlength="10" placeholder="Type Mobile Number"/>
+		</td>
+	</tr>
+	<tr>
+	<th>Gender:</th>
+	<td>
+		<input type="radio" id="rbtnMale" name="Gender" value="M" />Male
+		<input type="radio" id="rbtnFemale" name="Gender" value="F" />Female
+	</td>
+	</tr>
+	<tr>
+		<th>Languages known:</th>
+		<td>
+			<input type="checkbox" id="chkE" name="chkE" value="Eng"/>English
+			<input type="checkbox" id="chkT" name="chkT" value="Tel"/>Telugu
+			<input type="checkbox" id="chkH" name="chkH" value="Eng"/>Hindi
+			<input type="checkbox" id="chkM" name="chkM" value="Eng"/>Marathi
+		</td>
+	</tr>
+	<tr>
+		<th>Select City:</th>
+		<td>
+			<select name="City">
+				<option value="Select">--Select--</option>
+				<option selected value="Mumbai">Mumbai</option>
+				<option value="Hyderabad">Hyderabad</option>
+				<option value="Bangalore">Bangalore</option>
+				<option value="Chennai">Chennai</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>State:</th>
+		<td>
+			<input type="text" id="txtState" name="txtState" maxlength="20" placeholder="State" list="StateList"/>
+			<datalist id="StateList">
+				<option value="Maharashtra">MH</option>
+				<option value="Andhra Pradesh">AP</option>
+				<option value="Karnataka">KA</option>
+				<option value="Tamil Nadu">Tamil Nadu</option>
+
+
+			</datalist>
+		</td>
+	</tr>
+	<tr>
+		<th>Company URL:</th>
+		<td>
+			<input type="url" id="txturl" name="txturl" maxlength="40" placeholder="Company Website" />
+		</td>
+	</tr>
+	<tr>
+		<th>Date OF Joining:</th>
+		<td><input type="date" id="txtDOJ" name="DOJ"/></td>
+	</tr>
+	<tr>
+		<th>Upload Photo:</th>
+		<td>
+			<input type="file" id="fileImg" name="fileImg"/>
+		</td>
+	</tr>
+	<tr>
+		<th>Slider:</th>
+		<td>
+			<input type="range" min="0" max="10" value="4" />
+		</td>
+	</tr>
+	</table>
+	
+	 <input type="Submit" align="center" value="Register" />
+	 <input type="button" align="center" value="btn1" />
+</form>
+
+</body>
+</html>

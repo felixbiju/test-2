@@ -1,0 +1,129 @@
+
+Interpolation-->  when the data is going from componenet to view (ie .ts to .html) 
+Package.json
+configuration in this file is responsible to load or download the rquired modules or libraries 
+in angular when you build angular project typescript is translated to javascript.  it is knwn as transcompiling
+
+o/p is stored in dist file
+starting file --> index.html
+configuration in ts.configuration
+tsconfig.app.json and ts.json defines typescript related info and config
+angular.json gives us project specific info
+main file---> main.ts -->starts your angular proj---> available in src folder	
+every angular proj comes with a module and generally every angular proj has only one module
+module--->collection of components, services, PIPE, Router, Form, direvtives
+ without the bootstarp program your proj will not execute
+bootstrap module---> necessary starting module in angular is AppModule
+AppModule exists in app folder
+
+main.ts
+|
+|
+app.module.ts
+|
+|
+app.component.ts---> app-root refers to this file
+|
+|
+app.component.html --> app.component.css
+
+flow: approot in index.html refers the appcompo...ts file which refers the html file
+ routing concept: 
+Routing----> 		app.component.html
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+	||Home||About us||Employee Form||Display All||
+	    ^	       ^	
+	    |          |	Emp		disp		
+	When clicked   |
+  home component.html  |
+		   about us
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+Angular Routing
+---------------
+1. generate children components 
+command to generate component is
+--> ng g component mycomp/home where home is name of the component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

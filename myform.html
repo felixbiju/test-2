@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(
+	function()
+	{
+ 		 $("input#user").blur(
+		function()
+		 {
+		    var str=$(this).val();
+		    if(str=="")	
+		    {	
+			$("diV#formerr").text("User can not be empty");
+			$(this).focus();
+		     }
+		 }  );
+
+		 $("input#age").blur(
+		function()
+		 {
+		    var agereg=/[1-9]{1}[0-9]*/
+		    var str=$(this).val();
+		    if(str=="" || !agereg.test(str))	
+		    {	
+			$("diV#formerr").text("Invalid AGE");
+			$(this).focus();
+		     }
+		 }  );
+
+		 $("input#pwd").blur(
+		function()
+		 {
+		    var str=$(this).val();
+		       if(str.length<8)	
+			{
+	$("diV#formerr").text("Password length should be min 8 chars");
+			$(this).focus();
+			}
+
+		 }  );
+
+		 $("input#email").blur(
+		function()
+		 {
+      var emailreg=/^[a-z0-9._]+@[a-z0-9._]+\.[a-z]{2,5}/
+		    var str=$(this).val();
+		    if(str=="" || !emailreg.test(str))	
+		    {	
+		$("diV#formerr").text("Invalid Email");
+			$(this).focus();
+		     }
+		 }  );
+
+
+		 $("select").blur(
+		function()
+		 {
+		    var str=$(this).val();
+		       if(str=="")	
+			{
+	$("diV#formerr").text("Select country");
+			$(this).focus();
+			}
+		 }  );
+
+		 $("select").change(
+		function()
+		 {
+		    var str=$(this).val();
+			alert(str);
+
+		 }  );
+
+
+	}
+);
+</script>
+</head>
+<body>
+<h1>Registeration form</h1>
+<form action="jq1.html">
+Enter Name: <input type="text" id="user">  <br>
+Enter Age: <input type="text" id="age"><br>
+Enter password: <input type="password" id="pwd"> <br>
+Enter Email: <input type="text" id="email"> <br>
+Country <select>
+		<option></option>
+		<option>India</option>
+		<option>US</option>
+		<option>Pakistan</option>
+	</select>	
+<input type="submit" value="Register">
+</form>
+<div id="formerr" style="color:red;font-size:30px">
+</div>
+</body>
+</html>

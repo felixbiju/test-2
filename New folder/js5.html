@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script >
+		function add()
+		{
+		var a = document.getElementById("fno").value;
+		var b=document.getElementById("sno").value;
+		c=parseInt(a)+parseInt(b);
+		document.getElementById("restxt").value=c;
+	    }
+</script>
+</head>
+<body>
+<h1> Event handling</h1>
+<form id="f1">
+	Enter first number <input type="number" id="fno"/><br>
+	Enter second number <input type="number" id="sno"/><br>
+    Result is <input type="number" id="restxt"/><br>
+    <input type="button" value="ADD" onclick="add()">
+</form>
+</body>
+</html>

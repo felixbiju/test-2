@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script language="JavaScript">
+	var msg="";
+	function validate()
+	{
+		var msg="";
+		m1=document.f1.myemail.value.indexOf("@")
+		m2=document.f1.myemail.value.indexOf(".")
+		m3=document.f1.myemail.value.length
+		if (m1=-1||m2=-1||m3<6) {
+			msg="Please enter a valid email Id"
+		}
+		if (msg!="") {
+			alert(msg)
+		} else {
+			alert("Success")
+		}
+	}
+</script>	
+</head>
+<body>
+<form name=f1>
+	Email:<input type="text" name="myemail"><br>
+</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+$("p")====> Tag selector
+$("p.warn") ===> Class selector for paragraph
+$(".warn")==>Class selector
+$(this) ===> Current selected dom object in our program it is 		paragraph dom object
+$("p#ep")===> Id selector for paragraph
+$("#ep")  ==> id selector
+
+
+$("p").click  ===> click event of paragraph dom object
+
+hide()  ==> effect funtion applied on element object here   			paragraph object

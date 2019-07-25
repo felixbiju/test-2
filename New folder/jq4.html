@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	</style>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(
+			function()
+			{
+				$("input#user").blur(
+					function()
+					{
+						var str=$(this).val();
+						if (str=="") {
+							$("div#formerr").text("User cannot be empty")
+							$(this).focus();
+
+							}
+						
+
+					});
+				$("input#age").blur(
+					function()
+					{
+						var str=$(this).val();
+						if (str=="") {
+							$("div#formerr").text("Age cannot be empty")
+							$(this).focus();
+
+							}
+						
+							
+					});
+				$("input#pwd").blur(
+					function()
+					{
+						var str=$(this).val();
+						if (str=="") {
+							$("div#formerr").text("password cannot be empty")
+							$(this).focus();
+							}
+						
+				$("input#email").blur(
+					function()
+					{
+						var emailreg=/^[a-z0-9._]+@[a-z0-9._]+\.[a-z]{2,5}/
+						var str=$(this).val();
+						if (str=="" || !emailreg.test(str)){
+							$("div#formerr").text("Invalid Email");
+							$(this).focus();
+							}			
+					});
+			});
+	</script>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form action="jq1.html">
+	Enter Name: <input type="text" id="user">
+	Enter Age: <input type="text" id="age">
+	Enter password: <input type="password" id="pwd">
+	Enter Email: <input type="text" id="email">
+
+Country <select>
+	<option></option>
+	<option>India</option>
+	<option>US</option>
+	<option>Pakistan</option>
+</select>
+<input type="submit" value="Register">
+</form>
+<div id="formerr" style="color: red; font-size: 30px" >
+	</div>
+	</body>
+</html>

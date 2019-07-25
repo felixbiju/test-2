@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>Select the toppings</h1>
+Cheese:
+<input type="checkbox" name="t" value="Cheese"><br>
+Capsicum:
+<input type="checkbox" name="t" value="Capsicum"><br>
+Mushroom:
+<input type="checkbox" name="t" value="Mushroom"><br>
+
+<button onclick="myFunction()"> Try it</button>
+<p id="demo"></p>
+
+<script>
+	function myFunction()
+	{
+	var x = "";
+	y=document.getElementsByName("t");
+	for (var i = 0; i < y.length; i++) 
+	{
+		if (y[i].checked==true) 
+		  {
+
+ 			x+=y[i].value;
+		  }
+	}
+	document.getElementById("demo").innerHTML=x;
+    }
+</script>
+
+</body>
+</html>

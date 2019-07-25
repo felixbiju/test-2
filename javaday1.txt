@@ -1,0 +1,669 @@
+------------------------------
+
+class Demo
+{
+	public static void main(String args[])
+	{   
+		int a=10;
+		int b=20;
+		intc=a+b;
+		System.out.println('the addition of a and b is " +c);			system, Demo, String are classes;
+											these classes are taken from API library
+	}
+
+
+}
+// filename should be same as the class name
+
+//class name starte with capital case
+/* 
+	eg. Demo, Mydemo, My_demo, MyDemo$
+	not allowed My Demo, My-Demo
+	not recommended: mydemo, demo
+*/
+-----------------------------
+HOW TO SET THE PATH
+COPY PATH TILL BIN (FORM JDK)
+COPY PASTE TO ENVIRONMENT VARIABLES TO THE USER VARIABLES TO PATH
+EG. PATH
+    .	
+CREATE NEW PATH (CLASSPATH)
+	.....\LIB;.; FROM JDK
+
+
+byte code is platform independent (.class files)
+byte code conversion takes place 
+
+BYTE CODE IS AN INTERMEDIATE AND A PLATFORM INDEPENDENT LANGUAGE WHICH CAN BE UNDERSTOOR BY ANY JVM 
+byte code has an extension names ".class"
+
+every platform has their own JVM which does the byte code conversion
+
+after compiling the .java file Demo1.class file is created
+
+class file is passed to JRE which consists of the API and the JVM (consists of the class loader(loads different classes, 
+java applications), byte code verifier), 
+the interpreter/JIT(just in time compiler),JIT is faster than interpreter: converts bytecode into 
+platform specific code (native code) and executes
+
+JRE and JVM is diff for each platform (platform specific)
+
+JDK=compiler+JRE, JStandardDK 
+JRE is also microprocessor specific
+
+primitive  /// holding single values
+====================
+Numeric
+---------
+numbers   --->  byte 1 byte (8 bits), short 2 bytes, int 4 bytes, long 8 bytes  /// -ve to +ve values
+floating  --->  float 4 byte, double 8 byte
+
+Boolean
+--------
+boolean  --->	1 bit true, false
+
+Text
+--------
+char	---> 	2  bytes
+
+String--- not a data type. it is a class
+
+
+reference  /// holding multiple values
+========================
+--->	arrays
+--->	class
+--->	interface
+--->	String
+---> 	enum
+--->	collection of classes
+
+default number data type is int and default floating point is double
+
+-----------------------------------------------
+eg
+class Demo1
+{
+	public static void main(String args[])
+	{
+		int a=1234;	//decimal
+		int b=025;	// octal prefix is 0
+		int c=0x25aabb;	//hexadecimal prefix 0x
+		int d=0b1100_0011;  //binary prefix 0b(jdk 1.7 onwards)
+		long e=12716358271L;  //postfix with L or l(for small number it is optional)
+		float f=234.234f;	//mandatory postfix with f or F
+		double g=3.223; 	//optionally postfix with d or D
+		boolean h=25>100;
+		char i='A'; 
+		char j='\u0050';	//0-65535 also called as unicode
+		System.out.println("Result is "+a+ +b+ +c+ +d+ +e+ +f+ +g+ +h+ +i+ +j+ );			
+	}
+}	
+
+-------------------------------------
+class Demo3
+{
+	public static void main(String args[])
+	{
+		int a=5;	//0101
+		int b=7;	// 0111		
+		System.out.println(a&b);   //5
+		System.out.println(a|b);   //7
+		System.out.println(a^b);   //2
+		System.out.println(~a);   //-6
+					
+	}
+}	
+
+-------------------------------------
+shift operators
+used for gaming (ie to generate random numbers, objects)
+
+class Demo3
+{
+	public static void main(String args[])
+	{
+		int a=5;	//0101
+		int b=7;	// 0111		
+		System.out.println(a&b);   //5
+		System.out.println(a|b);   //7
+		System.out.println(a^b);   //2
+		System.out.println(~a);   //-6
+					
+	}
+}	
+
+every left shift multiplies the number by 2; eg 5*2*2=20
+
+every right shift divides the number by 2
+--------------------------------------
+
+class Demo5
+{
+	public static void main(String args[])
+	{
+		long l1=123;
+		double d1=100;
+		char ch=66;
+		System.out.println(l1);
+		System.out.println(d1);   //5
+		System.out.println(ch);   //7
+		double d2=315.345345;
+		int i1=(int)d2;
+		System.out.println(i1);   //2
+		byte b1=(byte)d2;
+		System.out.println(b1);   //-6
+		int aa=98;
+		char ch2=(char) aa;
+		System.out.println(ch2);					
+	}
+
+}	
+
+
+character array in java is not considered as string
+
+local variables must be initialized o/w it is a compile time error
+when the main method (psvmain) starts the variables are allocated
+method parameters (String args[]) are also considered as local variables
+
+-------------------------------------
+
+import java.util.Scanner;
+class Demo6
+{
+	public static void main(String args[])
+	{
+		String fname;
+		int fquant;
+		double fprice;
+		Scanner sc=new Scanner(System.in);
+		fname=sc.next();
+		fquant=sc.nextInt();
+		fprice=sc.nextDouble();	
+		System.out.println(fname);   
+		System.out.println(fquant);   
+		System.out.println(fprice);   
+					
+	}
+}	
+
+from cmd line arg data will always go as STRING that is why we are using double fprice=Double.parseDouble(args[1]);
+		int fquant=Integer.parseInteger(args[2]);
+---------------------------------
+class Demo7
+{
+	public static void main(String args[])
+	{
+		//args[0]="Burger" args[1]="100.00"
+		//args[2]="5";
+		String fname=args[0];
+		double fprice=Double.parseDouble(args[1]);  //cmd line args always go as string hence to convert them to int,double,etc
+		int fquant=Integer.parseInt(args[2]);
+		System.out.println(fname);   
+		System.out.println(fprice);   
+		System.out.println(fquant);   
+					
+	}
+}	
+------------------------
+
+if else is used for multiple conditions
+
+switch case
+from jdk 1.7 case value can be string also
+
+
+sop("enter festival")
+string fest=sc.next();
+switch(fest)
+{
+	case "diwali": discount =price*0.50;
+			break;
+	case "holi": discount =price*0.30;
+			break;
+	default    :sop("better luck next time");
+}
+
+
+ARRAY
+collection of similar data type
+
+----------------------------------------------------------------------------------------------------
+
+Day 2
+
+
+if all classes are default classes you can save the file by any name
+
+in multiple classes only single class can be public
+file name should be same as the public class name
+
+package is collection of related classes
+always in lower case
+
+eg package com.lti
+com group 
+lti sub group
+
+package java.util.Scanner;
+java main group
+util sub group 
+Scanner class
+
+If there are different classes and we wish to use a default class in some another class then
+we need to create a object of that class and then call it using the object name.
+
+javac -d D:\Vinny  Item.java--> create package name directories
+javac -d . Item.java--> . indicates current prompt dir
+--> D:\Vinny
+	   |->	com
+		|->	lti
+			|-> ABC.class, XYZ.class
+			|-> Item.class
+import com.lti.* --> * is to access all classes
+
+
+package com.main;
+import com.lti.*;
+public class Demo14{
+	public static void main(String args[])
+	{
+		XYZ ob=new XYZ();//trying to access class XYZ--> wont be able to acces as XYZ class is a 
+					default class ( should be public class to be accesses)
+}
+
+
+if any class stores any info about a p[articular entity then those type of classes are know as bin or
+DTO (data transfer obj)
+
+private variables and functions cannot be accessible outside a class
+-------------------------------------------
+variables within the main method are known as local variables
+instance varibles are allocated within a heap
+
+instance v-separate copy for separate variable
+local and instance variables can hjave the same name as local is stored in stack and instance within a heap
+
+use the keyword "this" eg this.pid, this,pname ,,etc when the local and the instance variable have the same name
+
+--------------------------------------------
+SETTER AND GETTER 
+
+private int pid
+// setter for pid is always void	//mutator
+public void setPid(int pid)
+{
+	if(pid>0)
+	{
+		this.pid=pid;
+	}
+}
+//getter method //accesor method
+public int getPid()
+{
+return pid;
+}
+---------------------------------
+CONSTRUCTOR
+it is a method which has same name as the class name
+it nvr has return type
+can be public default protected and in rare cases private
+it gets executed as soon as obj is created and allocated in  a memory 
+DEFAULT CONSTRUCTOR --> if u do not add or wite in a class then it is added autpmatically in a class by java compiler
+types of constructor
+-->default
+-->parameterized
+if u crt parameterized constructor it is ecommened that you must create default constructor also because compiler will add it 
+--when the obj has no reference from the stack only then it will be detsroyed
+
+-----------------------------------------------
+DAY 3
+Association:
+It is a relationship between the multiple objects created for the tables. In tables we relate the tables using the foreign key,
+but in programming we create a class and related the classes using the object name  of the class
+
+
+class Department                               class employee
+{                                               {								
++int did;					int eid;
+String dnname;					String ename;
+} 						Department dept;
+	
+two types of assc:
+aggregation and composition
+				               
+aggregation-->special kind of assc, weak assoc
+
+class CDROM{			class PC{
+company,			cpu,
+speed				memory,
+}				CDROM cdr;	}
+
+PC can work without the CDROM and so can CDROM w/o the PC
+i.e both the objs can exist w/o each other
+
+Composition:
+
+It is a strong type of assc:
+PC is composed of CPU
+PC cannot exist wo CPU
+CPU ios the owner obj
+
+---------------------------------------
+Inheritance
+Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another.
+With the use of inheritance the information is made manageable in a hierarchical order.
+The class which inherits the properties of other is known as subclass (derived class, child class) and
+ the class whose properties are inherited is known as superclass (base class, parent class).
+
+using super keyword we can call superclass variable or method or constructor
+
+when sub class has same function as super class but differs in instruction then it is called as overriding
+overrided method has exact return type name and parameter list		
+
+protected is accessible anywhere in the package including sub class
+
+in polymorphism it is not possible for the super class to invoke sub class method
+
+ABSTRACT METHOD---> DOES NOT HAVE A BODY
+IF THE METHOD IS ABSTRACT THEN THE CLASS IS ALSO ABSTRACT
+abstract class does not necessarily contain abstract method
+if method is abstract then so should be the class
+if we dont override abstract method in a subclass, then declare that class as an abstract class
+abstract class obj cannot be created 
+
+FINAL VARIABLE VALUES ARE ALWAYS CONSTANT								
+eg pi value
+
+static modifier is applied mainly for variables and methods
+since it belongs to the class they are called as static members or class variables or class methods
+static members exist wo objects
+static variable values can be shared because it has a single copy in memory
+
+when class is loaded static variables are loaded and the static blocks are executed ONLY ONCE	
+you can have n number of blocks and they are used to initialize static variables (inside a static block)
+u can have overloaded static method but not overided static method
+
+in the case of interface polymorphism interface can point to implemented obj and only overided method can be invoked
+when one interface extends another interface and class is implementing sub interface you must implement super as well as sub interface 
+methods
+interface is used to list common behaviour between unrelated objects 
+
+-----------------------------------------------
+String s1=new String("LTI");
+String s2=new String("LTI");  ///true in this case and false if second word is in lowercase
+
+SOP((s1==s2));
+or
+
+SOP((s1.equals(s2));
+
+//== checks memory reference
+and equals checks actual content
+	
+//equalsIgnoreCase check content of string wo matching case
+
+String s="Larsen";
+s=s+"and Toubro Infotech";
+the above eg has more than one objects 		1f-> Larsen			---> three objs are created
+						2f-> and Toubro Infotech
+						3f-> Larsen and Toubro Infotech
+
+same object is not editable or not appendable hence strings are immutable
+instead of string class use string buffer and string builder (as these two allow objexts to be appended) 
+
+since String objs are immutable
+alternate class is StringBuffer and StringBuilder(1.5) both have same methods but StringBuffer is thread safe means all
+methods are synchronized where StringBuilder is not thread safe means methods are not synchronized
+
+
+ArrayIndexOutOfBoundsException 
+
+unchecked exceptions:
+runtime, arrayindex, outofbounds, arithmetic, nullpoint
+They directly occur while executing	
+if the checked exception is unhandled it needs throws clause at method declaration 
+
+----------
+Linked hash set follows insertion sequence
+----------
+HASH SET
+hash set will allow one obj as null obj
+no duplicates
+unordered insertion sequence
+---------
+Tree set does not allow null values
+throws NullPointerException
+elements are sorted in natural order
+---------
+Hash Map also checks the duplication of the keys via Hashcode and equals method
+if it is a tree set elements are sorted and if its a tree map keys are sorted 		
+
+hashset uses hashcode and equals methods	
+
+Multitasking
+multiple tasks simultaneously
+
+Threads are stored within a process
+Thread properties:
+ID ---> generated automatically
+name ---> setName()..., getName()
+priority--> 1-> min, 5-> normal, 10-> max---> setter/getter
+threadgroup---> optional
+
+
+package lti;
+
+public class Demo2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyThread t1=new MyThread(); //Generate thread object
+		
+		//Start the thread
+		t1.start();
+		System.out.println("Exiting main");
+
+	}
+
+}
+
+t1.start enables the thread to be in ready or runnable state	
+package lti;
+
+public class MyThread extends Thread {
+
+	//runnable interface has run() method and implemented in thread class
+	//we need to override run method in class
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Executing subclass from my thread");
+		//super.run();
+		try {
+			Thread.sleep(1000);
+			
+		}catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("My Thread exiting");
+	}
+	
+}
+run()--> running
+ThreadSafe means that only one thread gets executed
+
+JDBC:
+jdbc---> java database connectivity
+JDBC driver--> used to establish connection to database and perform jdbc operations
+
+1. TYPE 1- JDBC-ODBC Bridge
+Client machine ODBC driver which connects to DB. Java supplied bridge JDBC_ODBC bridge
+
+2. TYPE 2- Native API--> Databse vendor API for driver 
+	   Native--> Specific to DB vendor
+
+TYPE 1 AND 2 are platform dependent 
+
+3. TYPE 3- Net protocol pure java driver can be used on the internet 
+Java calls are translated to any database understandable calls also called as net protocol calls i.e DB independent calls
+
+4. TYPE 4- Native protocol writte in pure java ie JAVA calls are translated to database protocols (that means understandable)
+only types 3 and 4 are pure java ie platform ind drivers
+
+we will be using the 4th type of driver 
+
+JDBC STEPS
+----------
+1. LOAD THE DRIVER
+2. ESTABLISH CONNECTION TO DB USING URL, USERNAME, PASSWORD
+3. GENERATE STATEMENT TO EXECUTE SQL 
+4. ACCESS DATA OR PROCESS DATA 
+
+java.sql package contains jdbc interfaces and classes 
+
+Statement 
+-------------
+select queries---> ResultSet executeQuery(select query);
+insert, update and delete
+
+dml	--->		executeUpdate(dml query);
+
+any query can be executed using ====>		boolean execute(sql);
+if query returns ResultSet then it returns true o/w it is false 
+
+class.forName---> for jdbc connectivity we need to load the driver class... it is a static method of class
+teh jar files will differ from db to db
+
+oracle.jdbc.driver.OracleDriver--- jdbc driver
+oracle.jdbc.driver--->	package
+OracleDriver---> 	class
+
+url=DBA will provide 
+establish connn using url, username and pw
+username=hr
+password=hr
+
+path for DB will be given by url
+jdbc:oracle:thin:@localhost:1521:xe----> url contains path to the DB server 
+url contains protocols
+thin--> N/W protocols
+1521--> port number... in s/w app, each app runs on some port no. generally oracle db runs on 1521 pn
+sql runs generally on 3306 pn
+it can be changed by dba
+xe---> it is the default DB name(varies)
+
+if connection is not established then SQL exception will be thrown 
+after establishing conn we pass the sql query to the DB
+so we create the statement obj
+
+select * from acc will go to db and the query will be executed and info will be sent abck to java and will be stored in ResultSet
+RS will use the method next() to go the next record 
+
+---------------------------------------------------------------
+package lti;
+import java.sql.*;
+import java.time.LocalDate;
+public class Demo1 {
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String username="hr";
+		String password="hr";
+		//establish connection
+		Connection con=DriverManager.getConnection(url,username,password);
+		System.out.println("Connected successfully");
+		Statement st=con.createStatement(); //generate Statement to execute SQL
+		ResultSet rs=st.executeQuery("select * from account");
+		while(rs.next())   //goes to next record if exists in returns true
+		{
+			int id=rs.getInt(1);
+			String n=rs.getString(2);
+			LocalDate d=rs.getDate(3).toLocalDate();
+			double bal = rs.getDouble(4);
+			System.out.println(id+" "+n+" "+d+" "+bal);
+			System.out.println("-------------");
+			}
+		con.close();
+		
+
+	}
+}
+Layer Architecture 
+-----------------------
+Presentation layer===>	have classes executed and visible by client
+ie in Java ExecutableClass which performs IO display 
+com.lti.ui---->
+
+Service Layer===>	have classes which will have methods or fxns
+required by client or pl layer 
+com.lti.service--->
+
+Bean/ Data layer===>	have classes which stores info
+com.lti.bean, com.lti.dto, com===> classes will be inside this 
+
+DAO==>	Data Access Object
+--> have classes which JDBC code for services operations
+com.lti.dao
+
+JDBC is never written in service and presentation layer 
+
+Prepared Statement
+-----
+--> parameterized query, avoid modification of sql query, precompiled query
+
+Methods
+-----
+-->
+ResultSet executeQuery();---> for select queries
+int executeUpdate();---> for dml queries 
+boolean execute(); ---> for any other query
+Query is generated while creating PreparedStatement obj
+
+Java 8 onwards:
+if driver is in the class path then it is loaded automatically
+--> dont need class.Forname hence comment it
+
+callable statement is used to call the procedure from the database 
+
+
+create or replace procedure findbalance(ano IN number, bal OUT number)
+is 
+begin
+	select balance
+	into bal
+	from account
+	where aid=ano;
+end;
+/
+
+declare 
+bal number(8,2) 
+begin
+exec findbalance(,bal);
+end;
+-----------------------------------------
+
+Software development lifecycle
+1. Requirement specs
+2. Analysis Design
+3. Coding/ Develeopment
+4. Testing
+5. Accepted by the user--> Client--> Product owner ====> Delivered s/w client
+6. Maintenance 
+
+SDLC Models
+1. Waterfall models
+	phase 1- Requirement 
+	end
+		phase 2- Analysis/ Design
+		end
+			phase 3- Coding/ Development
+			end
+Banking App
+-----------
+Module 1- Account Services
+SDLC life cycle 

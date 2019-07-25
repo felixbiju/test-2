@@ -1,0 +1,65 @@
+.center
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#b1
+{
+	border-style: ridge;
+    max-width: 350px;
+	margin:auto;
+	padding: 10px;
+	
+
+}
+
+#c1
+{
+   font-size: 30px;
+   padding-top: 5px;
+   padding-bottom: 10px;
+
+  
+}
+#n1
+{
+	padding:10px;
+
+
+}
+#m1
+{
+	padding:10px;
+
+}
+#e1
+{
+	padding:10px;
+}
+#p1
+{
+	padding:10px;
+}
+#text1
+{
+	padding:10px;
+
+}
+.button
+{   
+  background-color: #F5A744;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+ 
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+	padding: 10px;
+}
+#sign1
+{
+	padding: 10px;
+}

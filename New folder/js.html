@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function check(a) {
+		alert("paragraph clicked");
+		para=document.getElementsByTagName("p");
+		for (var i = 0; i < para.length; i++) {
+			if (para[i].style.display="block" && i==a) {
+				alert(para[i].innerHTML);
+				para[i].style.display="none";
+			}
+		}
+	}
+</script>
+</head>
+<body bgcolor=maroon;>
+	<h1>adksfaskjdhslakd
+	</h1>
+	<p onclick="check(0)">I am Vinny bwahahahahahaha</p>
+	<p onclick="check(1)">I am Shrutee12 bwahahahahahaha</p>
+	<p>Kaisa hai </p>
+	<p>Bhai theek hu</p>
+</body>
+</html>
